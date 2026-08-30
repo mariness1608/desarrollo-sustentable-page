@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impacto Ambiental del Almacenamiento en la Nube</title>
+
+<!-- Google Fonts: Poppins (títulos) + Inter (texto) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* =========================================================
+     1. VARIABLES GLOBALES (Design Tokens — Aurora UI)
+     ========================================================= */
+  :root{
+    --bg-base:      #0a0c14;   /* fondo oscuro base */
+    --aurora-purple:#8b5cf6;
+    --aurora-cyan:  #22d3ee;
+    --aurora-green: #34d399;
+    --card-bg:      rgba(22, 24, 36, 0.72);  /* semi-sólido gris oscuro */
+    --card-border:  rgba(255,255,255,0.08);
+    --text-main:    #f5f6fa;
+    --text-soft:    #b7bcd0;
+    --font-display: 'Poppins', sans-serif;
+    --font-body:    'Inter', sans-serif;
+  }
+
+  /* =========================================================
+     2. RESET Y BASE
+     ========================================================= */
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--bg-base);
+    color:var(--text-main);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  img{ max-width:100%; display:block; }
+  h1,h2,h3{ font-family:var(--font-display); }
+
+  section{
+    position:relative;
+    z-index:1;
+    padding:5.5rem 1.5rem;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--aurora-cyan);
+    font-weight:600;
+    margin-bottom:.9rem;
+  }
+
+  .section-title{
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+    font-weight:700;
+    margin-bottom:2.4rem;
+  }
+
+  /* =========================================================
+     3. FONDO AURORA ANIMADO (fijo detrás de todo el contenido)
+     ========================================================= */
+  .aurora-bg{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    background:var(--bg-base);
+  }
+
+  .aurora-blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(110px);
+    opacity:.55;
+  }
+
+  .blob-1{
+    width:55vw; height:55vw;
+    background:var(--aurora-purple);
+    top:-15%; left:-10%;
+    animation:driftA 22s ease-in-out infinite;
+  }
+  .blob-2{
+    width:50vw; height:50vw;
+    background:var(--aurora-cyan);
+    top:25%; right:-15%;
+    animation:driftB 26s ease-in-out infinite;
+  }
+  .blob-3{
+    width:48vw; height:48vw;
+    background:var(--aurora-green);
+    bottom:-18%; left:20%;
+    animation:driftC 30s ease-in-out infinite;
+  }
+
+  @keyframes driftA{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(8vw,10vh) scale(1.15); }
+  }
+  @keyframes driftB{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-10vw,8vh) scale(1.1); }
+  }
+  @keyframes driftC{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(6vw,-8vh) scale(1.12); }
+  }
+
+  /* =========================================================
+     4. ANIMACIONES DE ENTRADA (scroll reveal)
+     ========================================================= */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+
+  @keyframes bounceArrow{
+    0%,100%{ transform:translateY(0); opacity:.6; }
+    50%{ transform:translateY(10px); opacity:1; }
+  }
+
+  /* =========================================================
+     5. TARJETA BASE (usada en todas las secciones)
+     ========================================================= */
+  .glass-card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:26px;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .glass-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(255,255,255,0.18);
+    box-shadow:0 28px 60px rgba(0,0,0,.45);
+  }
+
+  /* =========================================================
+     6. HERO
+     ========================================================= */
+  .hero{
+    position:relative;
+    z-index:1;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:2rem 1.5rem;
+  }
+
+  .hero-content{ max-width:760px; }
+
+  .hero-tag{
+    display:inline-block;
+    padding:.5rem 1.1rem;
+    border:1px solid var(--card-border);
+    border-radius:999px;
+    font-size:.8rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--aurora-cyan);
+    background:rgba(34,211,238,.08);
+    margin-bottom:1.8rem;
+  }
+
+  .hero h1{
+    font-size:clamp(2.4rem, 6.5vw, 4.2rem);
+    font-weight:800;
+    line-height:1.1;
+    letter-spacing:-.02em;
+    background:linear-gradient(100deg, var(--aurora-purple), var(--aurora-cyan) 45%, var(--aurora-green));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+
+  .hero p{
+    margin-top:1.4rem;
+    font-size:clamp(1rem, 2.2vw, 1.2rem);
+    color:var(--text-soft);
+    max-width:540px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-cta{
+    margin-top:2.6rem;
+    display:inline-block;
+    padding:.95rem 2.3rem;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--aurora-cyan), var(--aurora-green));
+    color:#06110d;
+    font-weight:600;
+    font-size:1rem;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .hero-cta:hover{
+    transform:translateY(-4px) scale(1.04);
+    box-shadow:0 0 45px rgba(34,211,238,.45);
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:2.2rem;
+    left:50%;
+    transform:translateX(-50%);
+    color:var(--text-soft);
+    font-size:.75rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.4rem;
+  }
+  .scroll-cue span{ display:block; width:1px; height:26px; background:var(--aurora-cyan); animation:bounceArrow 1.8s ease-in-out infinite; }
+
+  /* =========================================================
+     7. EXPLICACIÓN / RESUMEN
+     ========================================================= */
+  .resumen-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1.5rem;
+  }
+
+  .resumen-card{ padding:2rem; }
+  .resumen-card .icon{ font-size:1.9rem; margin-bottom:1rem; }
+  .resumen-card h3{ font-size:1.15rem; margin-bottom:.7rem; color:var(--aurora-cyan); }
+  .resumen-card p{ color:var(--text-soft); font-size:.96rem; }
+
+  /* =========================================================
+     8. TARJETAS DE CAUSAS (con imagen)
+     ========================================================= */
+  .causes-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.4rem;
+    margin-bottom:1rem;
+  }
+
+  .cause-card{ overflow:hidden; }
+
+  .cause-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    filter:saturate(1.1);
+    transition:transform .5s ease;
+  }
+  .cause-card:hover img{ transform:scale(1.07); }
+
+  .cause-body{ padding:1.3rem 1.4rem 1.6rem; }
+  .cause-body h4{ font-size:1.02rem; margin-bottom:.5rem; }
+  .cause-body p{ font-size:.88rem; color:var(--text-soft); }
+
+  /* =========================================================
+     9. ACORDEÓN — CRONOLOGÍA
+     ========================================================= */
+  .accordion-item{
+    border-radius:18px;
+    margin-bottom:1rem;
+    overflow:hidden;
+  }
+
+  .accordion-header{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+    width:100%;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:1.2rem 1.4rem;
+    color:var(--text-main);
+    font-family:var(--font-body);
+    text-align:left;
+  }
+
+  .accordion-header .step-year{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:1rem;
+    min-width:64px;
+    color:var(--aurora-green);
+  }
+
+  .accordion-header .step-title{ flex:1; font-size:1rem; font-weight:600; }
+
+  .accordion-header .chevron{
+    color:var(--text-soft);
+    transition:transform .3s ease;
+    font-size:1.1rem;
+  }
+  .accordion-item.active .chevron{ transform:rotate(45deg); color:var(--aurora-cyan); }
+
+  .accordion-panel{ max-height:0; overflow:hidden; transition:max-height .4s ease; }
+  .accordion-panel-inner{ padding:0 1.4rem 1.4rem 5.6rem; color:var(--text-soft); font-size:.92rem; }
+
+  /* =========================================================
+     10. OPINIÓN PERSONAL / MURO DE OPINIONES
+     ========================================================= */
+  .wall{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    margin-top:1.6rem;
+    max-height:420px;
+    overflow-y:auto;
+    padding-right:.4rem;
+  }
+
+  .wall-empty{ color:var(--text-soft); font-size:.92rem; padding:1.2rem; }
+
+  .wall-entry{
+    padding:1.1rem 1.3rem;
+    border-radius:16px;
+  }
+
+  .wall-entry .wall-name{
+    font-weight:600;
+    color:var(--aurora-cyan);
+    font-size:.92rem;
+    margin-bottom:.35rem;
+  }
+
+  .wall-entry p{ color:var(--text-soft); font-size:.92rem; }
+
+  /* =========================================================
+     11. FORMULARIO
+     ========================================================= */
+  .form-card{ padding:2.2rem; }
+
+  .form-group{ margin-bottom:1.3rem; }
+
+  .form-group label{
+    display:block;
+    font-size:.88rem;
+    color:var(--text-soft);
+    margin-bottom:.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea{
+    width:100%;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--card-border);
+    border-radius:14px;
+    padding:.85rem 1rem;
+    color:var(--text-main);
+    font-family:var(--font-body);
+    font-size:.95rem;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus{
+    outline:none;
+    border-color:var(--aurora-cyan);
+    box-shadow:0 0 0 3px rgba(34,211,238,.15);
+  }
+
+  .form-group textarea{ resize:vertical; min-height:110px; }
+
+  .form-submit{
+    display:inline-block;
+    padding:.9rem 2.1rem;
+    border-radius:999px;
+    background:linear-gradient(90deg, var(--aurora-purple), var(--aurora-cyan));
+    color:#0a0c14;
+    font-weight:600;
+    font-size:.98rem;
+    border:none;
+    cursor:pointer;
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .form-submit:hover{
+    transform:translateY(-3px) scale(1.03);
+    box-shadow:0 0 40px rgba(139,92,246,.4);
+  }
+
+  .form-msg{
+    margin-top:1rem;
+    font-size:.88rem;
+    color:var(--aurora-green);
+    display:none;
+  }
+  .form-msg.show{ display:block; }
+
+  /* =========================================================
+     12. RESPONSIVE — MOBILE FIRST OVERRIDES
+     ========================================================= */
+  @media (max-width: 780px){
+    section{ padding:4rem 1.2rem; }
+    .resumen-grid{ grid-template-columns:1fr; }
+    .causes-grid{ grid-template-columns:1fr; }
+    .accordion-header .step-year{ min-width:52px; font-size:.85rem; }
+    .accordion-panel-inner{ padding-left:1.4rem; }
+    .form-card{ padding:1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Fondo aurora animado, fijo detrás de todo el contenido -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+  </div>
+
+  <!-- =========================================================
+       HERO SECTION
+       ========================================================= -->
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-tag">Materia · Desarrollo Sustentable</span>
+      <h1>Impacto Ambiental del Almacenamiento en la Nube</h1>
+      <p>Cada archivo que subes vive en algún lugar físico: entiende el costo energético e hídrico detrás de "la nube".</p>
+      <a href="#explicacion" class="hero-cta">Descubrir el impacto</a>
+    </div>
+    <div class="scroll-cue">
+      <span></span>
+      Desliza
+    </div>
+  </header>
+
+  <!-- =========================================================
+       EXPLICACIÓN BREVE
+       ========================================================= -->
+  <section id="explicacion">
+    <span class="eyebrow reveal">Lo esencial</span>
+    <h2 class="section-title reveal">¿Qué es la nube y por qué importa?</h2>
+
+    <div class="resumen-grid">
+      <div class="glass-card resumen-card reveal">
+        <div class="icon">☁️</div>
+        <h3>No es "aire", son edificios</h3>
+        <p>El almacenamiento en la nube es guardar información en servidores remotos —dentro de centros de datos físicos— en lugar de un disco local, accesibles por internet en cualquier momento.</p>
+      </div>
+      <div class="glass-card resumen-card reveal">
+        <div class="icon">⚡</div>
+        <h3>Un costo invisible</h3>
+        <p>Esos servidores funcionan 24/7 y necesitan enfriarse constantemente. Según la Agencia Internacional de Energía, consumieron cerca de 415 TWh en 2024, un 1.5% de la electricidad mundial.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CAUSAS DEL IMPACTO + CRONOLOGÍA
+       ========================================================= -->
+  <section id="temas">
+    <span class="eyebrow reveal">Las causas</span>
+    <h2 class="section-title reveal">¿De dónde viene el impacto?</h2>
+
+    <div class="causes-grid">
+      <article class="glass-card cause-card reveal">
+        <img src="https://placehold.co/500x320/16182a/22d3ee?text=Energia&font=poppins" alt="Consumo de energía en centros de datos">
+        <div class="cause-body">
+          <h4>Consumo de energía</h4>
+          <p>Miles de servidores funcionando sin descanso, más el equipo de red y respaldo, exigen una demanda eléctrica constante y creciente.</p>
+        </div>
+      </article>
+
+      <article class="glass-card cause-card reveal">
+        <img src="https://placehold.co/500x320/16182a/34d399?text=Agua&font=poppins" alt="Consumo de agua para enfriamiento">
+        <div class="cause-body">
+          <h4>Agua para enfriar</h4>
+          <p>Muchos centros usan torres de enfriamiento evaporativo: los más grandes pueden consumir hasta 19 millones de litros de agua al día.</p>
+        </div>
+      </article>
+
+      <article class="glass-card cause-card reveal">
+        <img src="https://placehold.co/500x320/16182a/8b5cf6?text=Centros+de+Datos&font=poppins" alt="Infraestructura de centros de datos">
+        <div class="cause-body">
+          <h4>Infraestructura física</h4>
+          <p>Construir y renovar hardware constantemente genera huella de carbono en su fabricación, transporte y eventual desecho electrónico.</p>
+        </div>
+      </article>
+    </div>
+
+    <span class="eyebrow reveal" style="margin-top:1rem; display:block;">Línea de tiempo</span>
+    <h2 class="section-title reveal">Cómo creció este impacto, año con año</h2>
+
+    <div class="accordion reveal" id="accordion">
+
+      <div class="glass-card accordion-item">
+        <button class="accordion-header">
+          <span class="step-year">2006</span>
+          <span class="step-title">Nace la nube moderna</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Amazon lanza AWS con S3 y EC2, dando inicio al modelo de nube pública que hoy usan miles de millones de personas para guardar archivos.
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card accordion-item">
+        <button class="accordion-header">
+          <span class="step-year">2017</span>
+          <span class="step-title">Los gigantes tecnológicos reaccionan</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Ante el crecimiento del sector, grandes proveedores de nube comienzan a igualar su consumo eléctrico con compras de energía renovable, marcando el inicio del interés por reducir su huella.
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card accordion-item">
+        <button class="accordion-header">
+          <span class="step-year">2017-24</span>
+          <span class="step-title">El consumo se acelera</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Según la Agencia Internacional de Energía, la electricidad usada por centros de datos creció un 12% cada año durante este periodo, muy por encima del crecimiento eléctrico general.
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card accordion-item">
+        <button class="accordion-header">
+          <span class="step-year">2024</span>
+          <span class="step-title">El estado actual</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Los centros de datos consumen alrededor de 415 TWh al año (1.5% de la electricidad mundial), y algunos proveedores reportan miles de millones de litros de agua consumidos anualmente para enfriamiento.
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card accordion-item">
+        <button class="accordion-header">
+          <span class="step-year">2030</span>
+          <span class="step-title">Lo que proyecta la IEA</span>
+          <span class="chevron">+</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            Impulsado principalmente por la inteligencia artificial, el consumo eléctrico de los centros de datos podría duplicarse a cerca de 945 TWh anuales, equivalente al consumo eléctrico actual de Japón.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       OPINIÓN PERSONAL / MURO DE OPINIONES
+       ========================================================= -->
+  <section id="opinion">
+    <span class="eyebrow reveal">Tu turno</span>
+    <h2 class="section-title reveal">¿Qué piensas al respecto?</h2>
+
+    <div class="glass-card reveal" style="padding:1.6rem 1.8rem;">
+      <p style="color:var(--text-soft); font-size:.92rem; margin-bottom:.4rem;">Las opiniones enviadas en el formulario aparecerán aquí, en este muro de la clase.</p>
+      <div class="wall" id="wall">
+        <p class="wall-empty" id="wallEmpty">Todavía no hay opiniones. ¡Sé la primera persona en compartir la tuya!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FORMULARIO
+       ========================================================= -->
+  <section id="formulario">
+    <span class="eyebrow reveal">Participa</span>
+    <h2 class="section-title reveal">Comparte tu opinión</h2>
+
+    <form class="glass-card form-card reveal" id="opinionForm">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+      </div>
+
+      <div class="form-group">
+        <label for="correo">Correo electrónico</label>
+        <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="opinionTexto">Tu opinión</label>
+        <textarea id="opinionTexto" name="opinionTexto" placeholder="¿Qué opinas sobre el impacto ambiental de la nube?" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Enviar opinión</button>
+      <p class="form-msg" id="formMsg">¡Gracias! Tu opinión ya se agregó al muro de la clase.</p>
+    </form>
+  </section>
+
+  <script>
+    // =========================================================
+    // 1. ANIMACIÓN DE ENTRADA AL HACER SCROLL
+    // =========================================================
+    const revealEls = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // =========================================================
+    // 2. ACORDEÓN DE CRONOLOGÍA (abre uno, cierra los demás)
+    // =========================================================
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach(item => {
+      const header = item.querySelector('.accordion-header');
+      const panel  = item.querySelector('.accordion-panel');
+
+      header.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+
+        accordionItems.forEach(other => {
+          other.classList.remove('active');
+          other.querySelector('.accordion-panel').style.maxHeight = null;
+        });
+
+        if (!isActive){
+          item.classList.add('active');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // =========================================================
+    // 3. FORMULARIO -> MURO DE OPINIONES
+    //    (todo ocurre en memoria durante la sesión del navegador,
+    //     no se envía a ningún servidor)
+    // =========================================================
+    const form      = document.getElementById('opinionForm');
+    const wall      = document.getElementById('wall');
+    const wallEmpty = document.getElementById('wallEmpty');
+    const formMsg   = document.getElementById('formMsg');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nombre  = document.getElementById('nombre').value.trim();
+      const correo  = document.getElementById('correo').value.trim();
+      const opinion = document.getElementById('opinionTexto').value.trim();
+
+      if (!nombre || !opinion) return;
+
+      // Enviar los datos a Make (Custom Webhook) para guardarlos en
+      // Google Sheets y disparar el correo automático
+      fetch("https://hook.us2.make.com/temuxkywtgsv4481t12l5yyr3qme761y", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nombre, correo, opinion })
+      }).catch(err => console.error("Error al enviar a Make:", err));
+
+      // Ocultar mensaje de "muro vacío" en el primer envío
+      if (wallEmpty) wallEmpty.style.display = 'none';
+
+      const entry = document.createElement('div');
+      entry.className = 'glass-card wall-entry';
+      entry.innerHTML = `
+        <div class="wall-name">${nombre}</div>
+        <p></p>
+      `;
+      entry.querySelector('p').textContent = opinion;
+
+      wall.prepend(entry);
+
+      formMsg.classList.add('show');
+      form.reset();
+
+      setTimeout(() => formMsg.classList.remove('show'), 4000);
+    });
+  </script>
+
+</body>
+</html>
