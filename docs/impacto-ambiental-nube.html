@@ -659,14 +659,52 @@
     });
 
     // =========================================================
-    // 3. FORMULARIO -> MURO DE OPINIONES
-    //    (todo ocurre en memoria durante la sesión del navegador,
-    //     no se envía a ningún servidor)
+    // 3. MURO DE OPINIONES -> se llena leyendo Google Sheets
     // =========================================================
     const form      = document.getElementById('opinionForm');
     const wall      = document.getElementById('wall');
     const wallEmpty = document.getElementById('wallEmpty');
     const formMsg   = document.getElementById('formMsg');
+
+    const SHEET_ID   = '10ODZKY2LfmPbWqycHkf9DutRvQNAKw-_DmUe-539Bqc';
+    const SHEET_NAME = 'Hoja 1';
+
+    function addWallEntry(nombre, opinion, prepend){
+      if (!nombre || !opinion) return;
+      if (wallEmpty) wallEmpty.style.display = 'none';
+
+      const entry = document.createElement('div');
+      entry.className = 'glass-card wall-entry';
+      entry.innerHTML = `<div class="wall-name"></div><p></p>`;
+      entry.querySelector('.wall-name').textContent = nombre;
+      entry.querySelector('p').textContent = opinion;
+
+      if (prepend) wall.prepend(entry); else wall.appendChild(entry);
+    }
+
+    async function loadWallFromSheet(){
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+      try{
+        const res  = await fetch(url);
+        const text = await res.text();
+        const match = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*)\);?\s*$/);
+        if (!match) return;
+
+        const data = JSON.parse(match[1]);
+        const rows = data.table && data.table.rows ? data.table.rows : [];
+
+        // Columnas guardadas por Make: NOMBRE (A), CORREO (B), OPINION (C), FECHA (D)
+        rows.slice().reverse().forEach(row => {
+          const nombre  = row.c[0] && row.c[0].v;
+          const opinion = row.c[2] && row.c[2].v;
+          addWallEntry(nombre, opinion, false);
+        });
+      }catch(err){
+        console.error('No se pudo cargar el muro de opiniones:', err);
+      }
+    }
+
+    loadWallFromSheet();
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -685,18 +723,8 @@
         body: JSON.stringify({ nombre, correo, opinion })
       }).catch(err => console.error("Error al enviar a Make:", err));
 
-      // Ocultar mensaje de "muro vacío" en el primer envío
-      if (wallEmpty) wallEmpty.style.display = 'none';
-
-      const entry = document.createElement('div');
-      entry.className = 'glass-card wall-entry';
-      entry.innerHTML = `
-        <div class="wall-name">${nombre}</div>
-        <p></p>
-      `;
-      entry.querySelector('p').textContent = opinion;
-
-      wall.prepend(entry);
+      // Mostrar la opinión al instante en el muro (mientras Sheets se actualiza)
+      addWallEntry(nombre, opinion, true);
 
       formMsg.classList.add('show');
       form.reset();
