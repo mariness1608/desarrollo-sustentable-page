@@ -683,7 +683,7 @@
     }
 
     async function loadWallFromSheet(){
-      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+      const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}&headers=1`;
       try{
         const res  = await fetch(url);
         const text = await res.text();
@@ -694,9 +694,11 @@
         const rows = data.table && data.table.rows ? data.table.rows : [];
 
         // Columnas guardadas por Make: NOMBRE (A), CORREO (B), OPINION (C), FECHA (D)
+        // Se salta la primera fila si es el encabezado repetido (NOMBRE/OPINION)
         rows.slice().reverse().forEach(row => {
           const nombre  = row.c[0] && row.c[0].v;
           const opinion = row.c[2] && row.c[2].v;
+          if (nombre === 'NOMBRE' || opinion === 'OPINION') return;
           addWallEntry(nombre, opinion, false);
         });
       }catch(err){
