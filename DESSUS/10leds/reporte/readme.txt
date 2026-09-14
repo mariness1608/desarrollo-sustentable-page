@@ -1,2 +1,1 @@
-En esta practica necesitamos el Arduino uno, un protoboard de 830 puntos, 10 leds, 10 resistencias de 220 ohms y un cable usb.
-En esta practica lo primero fue colocar los leds con el lado mas largo junto a la resistencia y de ahí poner el cable macho al mismo par de la resistencia, posteriormente colocar un cable macho que conecte el proto al Arduino. Una vez que tengamos los 10 leds asignados colocamos el cable a GND, finalmente accedemos a la aplicación de arduino y subimos el código para así conectar el sistema a la computadora y los leds prendan.
+
