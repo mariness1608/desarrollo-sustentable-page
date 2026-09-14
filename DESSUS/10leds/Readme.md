@@ -33,7 +33,7 @@ Enumera todos los componentes usados:
 
 [readme.txt](video/readme.txt)
 
-[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70)
+[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70])
 
 ## Evidencias de armado
 
