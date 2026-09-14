@@ -19,7 +19,10 @@ Enumera todos los componentes usados:
 
 ## Diagrama del circuito
 
-<img src="Diagrama/Led 13.png" width="300">
+<img src="Diagrama/IMG_7126 2.HEIC" width="300">
+<img src="Diagrama/IMG_7131.HEIC" width="300">
+<img src="Diagrama/Kup-bigery suave.png" width="300">
+
 
 
 ## Código
