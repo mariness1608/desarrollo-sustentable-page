@@ -1,1 +1,1 @@
-
+Con el codigo que adjunte anteriormente pudimos observar que gracias a dicho código y la manera en la que esta la organización de la proto y todo lo que esta en ella, los leds puedan prender al conectarse al arduino y a la laptop
