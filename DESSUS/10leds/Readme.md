@@ -25,8 +25,8 @@ Enumera todos los componentes usados:
 
 
 
-## Código
-[Léame.txt](Código/Léame.txt)
+## Codigo
+[Readne.txt](Codigo/Readme.txt)
 
 
 
