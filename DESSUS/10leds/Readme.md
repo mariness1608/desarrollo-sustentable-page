@@ -19,8 +19,7 @@ Enumera todos los componentes usados:
 
 ## Diagrama del circuito
 
-<img src="diagrama/foto1.jpeg" width="300">
-<img src="diagrama/foto2.jpeg" width="300">
+
 <img src="diagrama/tinker.png" width="300">
 
 
@@ -34,11 +33,12 @@ Enumera todos los componentes usados:
 
 [Readme](Video/Readme.txt)
 
-[Ver video en YouTube]([https://www.youtube.com/watch?v=T5Aq7cRc-mU](https://www.youtube.com/watch?v=r36q2z-AkHk&sttick=0)
+[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70)
 
 ## Evidencias de armado
 
-<img src="Diagrama/Led 13.png" width="300">
+<img src="diagrama/foto1.jpeg" width="300">
+<img src="diagrama/foto2.jpeg" width="300">
 
 ## Reporte
 Incluye:
