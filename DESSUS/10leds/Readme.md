@@ -20,8 +20,8 @@ Enumera todos los componentes usados:
 ## Diagrama del circuito
 
 <img src="diagrama/foto1.jpeg" width="300">
-<img src="Diagrama/foto2.jpeg" width="300">
-<img src="Diagrama/Kup-bigery suave.png" width="300">
+<img src="diagrama/foto2.jpeg" width="300">
+<img src="diagrama/Kup-bigery suave.png" width="300">
 
 
 
