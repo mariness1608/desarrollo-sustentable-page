@@ -19,8 +19,8 @@ Enumera todos los componentes usados:
 
 ## Diagrama del circuito
 
-<img src="Diagrama/IMG_7126 2.HEIC" width="300">
-<img src="Diagrama/IMG_7131.HEIC" width="300">
+<img src="Diagrama/foto1.jpeg" width="300">
+<img src="Diagrama/foto2.jpeg" width="300">
 <img src="Diagrama/Kup-bigery suave.png" width="300">
 
 
