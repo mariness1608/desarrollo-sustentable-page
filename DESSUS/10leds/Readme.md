@@ -26,7 +26,7 @@ Enumera todos los componentes usados:
 
 
 ## Código
-[archivo principal.txt](Código/archivo principal.txt)
+[Léame.txt](Código/Léame.txt)
 
 
 
