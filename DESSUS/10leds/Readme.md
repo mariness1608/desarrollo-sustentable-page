@@ -21,7 +21,7 @@ Enumera todos los componentes usados:
 
 <img src="diagrama/foto1.jpeg" width="300">
 <img src="diagrama/foto2.jpeg" width="300">
-<img src="diagrama/Kup-Bigery suave.png" width="300">
+<img src="diagrama/tinker.png" width="300">
 
 
 
