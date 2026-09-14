@@ -26,7 +26,7 @@ Enumera todos los componentes usados:
 
 
 ## Código
-[led13.ino](Codigo/led13.ino)
+[led13.ino](Código/led13.ino)
 
 
 
