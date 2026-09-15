@@ -31,9 +31,10 @@ Enumera todos los componentes usados:
 
 ## Video del funcionamiento
 
-[readme.txt](video/readme.txt)
+[readme](video/readme.txt)
 
-[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70?si=RZrwnCCxavKmdopl])
+[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70])
+
 
 [Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70])
 
