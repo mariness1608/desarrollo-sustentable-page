@@ -34,7 +34,7 @@ Enumera todos los componentes usados:
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](https://www.youtube.com/shorts/ABC123=https://youtube.com/shorts/3cdXH-S2x70)
+[Ver video en YouTube](https://www.youtube.com/watch?v==https://youtube.com/shorts/3cdXH-S2x70)
 
 
 
