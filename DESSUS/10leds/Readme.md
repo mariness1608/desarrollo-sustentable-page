@@ -51,4 +51,4 @@ Incluye:
 ## Conclusiones
 el código actuo para prender los leds a como se indicaba, tambien conocimos la importancia de las resistencias y conocer un poquito acerca del arduino
 ## Resultados
-[resultado.pdf](Resutados/resultado.pdf)
+[resultado.pdf](resultados/resultado.pdf)
