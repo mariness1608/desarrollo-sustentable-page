@@ -36,7 +36,7 @@ Enumera todos los componentes usados:
 [Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70])
 
 
-[Ver video en YouTube]([https://youtube.com/shorts/3cdXH-S2x70])
+
 
 ## Evidencias de armado
 
