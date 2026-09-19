@@ -1,3 +1,54 @@
+# Nombre del proyecto
+automatización con chatbot de ecosistemas 
+
+
+## Descripción
+Diseñar y documentar una automatización en Make.com que, mediante un bot de Telegram y un Agente de IA con
+visión, identifique organismos del ecosistema del plantel a partir de una fotografía y clasifique su rol trófico,
+como herramienta de apoyo didáctico para la materia de Desarrollo Sustentable.
+
+## Objetivos de aprendizaje
+Comprender, mediante la construcción de una automatización real, cómo integrar servicios digitales (Telegram, Make e Inteligencia Artificial) para procesar información visual del ecosistema y reforzar conceptos de productores, consumidores y descomponedores vistos en la materia de Desarrollo Sustentable.
+
+## Material utilizado
+
+- make.com
+- telefono celular
+- fotografias
+- laptop
+- modulo de IA
+ 
+
+
+## Codigo
+[Readne.txt](Codigo/Readme.txt)
+
+
+
+## Video del funcionamiento
+
+[readme](video/readme.txt)
+
+
+[Ver video en YouTube](https://www.youtube.com/watch?v==https://youtube.com/shorts/3cdXH-S2x70)
+
+
+
+## Evidencias de armado
+
+<img src="diagrama/foto1.jpeg" width="300">
+<img src="diagrama/foto2.jpeg" width="300">
+
+## Reporte
+Incluye:
+[reporte.pdf](reporte/reporte.pdf)
+
+
+
+## Conclusiones
+el código actuo para prender los leds a como se indicaba, tambien conocimos la importancia de las resistencias y conocer un poquito acerca del arduino
+## Resultados
+[resultado.pdf](resultados/resultado.pdf)
 Nombre del proyecto
 automatización con chatbot de ecosistemas 
 
