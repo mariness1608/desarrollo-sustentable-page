@@ -34,10 +34,8 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 
 
 
-## Evidencias de armado
-
-<img src="diagrama/foto1.jpeg" width="300">
-<img src="diagrama/foto2.jpeg" width="300">
+## imagenes
+<img src="imagenes/imagen make.png" width="300">
 
 ## Reporte
 Incluye:
