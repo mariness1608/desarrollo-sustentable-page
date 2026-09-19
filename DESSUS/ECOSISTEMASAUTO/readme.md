@@ -20,8 +20,8 @@ Comprender, mediante la construcción de una automatización real, cómo integra
  
 
 
-## Codigo
-[Readne.txt](Codigo/Readme.txt)
+## codigo
+[main.txt](codigo/main.txt)
 
 
 
