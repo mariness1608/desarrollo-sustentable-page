@@ -43,5 +43,5 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 Automatizar este bot permitió comprender que una automatización no es solo conectar módulos, sino asegurarse de que los datos correctos lleguen, en el formato correcto, al lugar correcto. También quedó claro que el trabajo con Inteligencia Artificial requiere instrucciones precisas y una verificación constante mediante pruebas reales, ya que pequeños errores de configuración pueden hacer que todo el sistema deje de cumplir su propósito, aunque a simple vista parezca estar funcionando.
 
 ## Resultados
-[aprendizajes_automatizacion 2.pdf](resultados/aprendizajes_automatizacion 2.pdf)
+[resultados.pdf](resultados/aprendizajes_automatizacion 2.pdf)
 
