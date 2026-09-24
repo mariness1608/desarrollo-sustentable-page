@@ -2,7 +2,7 @@
 #define DHTPIN 2
 #define DHTTYPE DHT11
 #define LEDPIN 13
-const float UMBRAL = 26.0;  // grados Celsius
+const float UMBRAL = 25.0;  // grados Celsius
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -22,9 +22,9 @@ void loop() {
   }
 
   if (temperatura > UMBRAL) {
-    digitalWrite(LEDPIN, HIGH);  // pasa de 26: se prende
+    digitalWrite(LEDPIN, HIGH);  // pasa de 25: se prende
   } else {
-    digitalWrite(LEDPIN, LOW);   // baja de 26: se apaga
+    digitalWrite(LEDPIN, LOW);   // baja de 25: se apaga
   }
 
   Serial.print("Humedad: ");
