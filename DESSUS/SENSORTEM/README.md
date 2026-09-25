@@ -38,6 +38,6 @@ Enumera todos los componentes usados:
 
 ## Reporte
 Incluye:
-[Reporte_Arduino_DHT11.pdf](resultados/Reporte_Arduino_DHT11.pdf)
+[Reporte_Arduino_DHT11-2.pdf](resultados/Reporte_Arduino_DHT11-2.pdf)
 
 
