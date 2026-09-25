@@ -33,8 +33,8 @@ Enumera todos los componentes usados:
 
 ## Evidencias de armado
 
-<img src=IMG_7509.HEIC" width="300">
-<img src="diagrama/foto2.jpeg" width="300">
+
+<img src="imagenes/FOTO1.jpeg" width="300">
 
 ## Reporte
 Incluye:
