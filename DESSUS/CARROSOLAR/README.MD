@@ -29,7 +29,7 @@ Enumera todos los componentes usados:
 ## Evidencias de armado
 
 
-<img src="imagenes/IMG_7711.jpg" width="300">
+<img src="imagenes/IMG_7710.jpg" width="300">
 
 ## resultados
 Incluye:
