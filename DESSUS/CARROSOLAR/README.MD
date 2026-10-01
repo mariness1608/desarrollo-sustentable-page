@@ -33,7 +33,7 @@ Enumera todos los componentes usados:
 
 ## resultados
 Incluye:
-[Reporte_Arduino_DHT11-2.pdf](resultados/Reporte_Arduino_DHT11-2.pdf)
+[resultados_carro_solar.pdf](resultados/resultados_carro_solar.pdf)
 
 
 
