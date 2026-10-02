@@ -22,7 +22,7 @@ Enumera todos los componentes usados:
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](https://www.youtube.com/shorts/GjpIQmKPIq8)
+[Ver video en YouTube](https://www.youtube.com/shorts/9O1q_mcZ-Uo)
 
 
 
