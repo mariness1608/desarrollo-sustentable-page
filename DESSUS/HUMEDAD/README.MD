@@ -40,6 +40,6 @@ Enumera todos los componentes usados:
 
 ## Reporte
 Incluye:
-[resultadohumedad.pdf](resultado/resultadohumedad.pdf)
+[resultadohumedad.pdf](resultados/resultadohumedad.pdf)
 
  
