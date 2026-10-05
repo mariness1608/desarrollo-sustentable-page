@@ -20,7 +20,7 @@ Enumera todos los componentes usados:
 
 
 ## Codigo
-[Readne.txt](Codigo/Readme.txt)
+[Main.txt](CODIGO/Main.txt)
 
 
 
