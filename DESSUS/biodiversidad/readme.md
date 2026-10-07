@@ -38,10 +38,6 @@ Enumera todos los componentes usados:
 
 
 
-## Evidencias de armado
-
-<img src="diagrama/foto1.jpeg" width="300">
-<img src="diagrama/foto2.jpeg" width="300">
 
 ## resultados
 Incluye:
