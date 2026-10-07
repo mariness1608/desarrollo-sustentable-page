@@ -17,7 +17,7 @@ Enumera todos los componentes usados:
 - Resistencia 220 ohms
  
 
-## Diagrama del circuito
+## evidencias
 
 
 <img src="imagenes/automati.jpeg" width="300">
