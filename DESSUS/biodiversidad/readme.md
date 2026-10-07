@@ -43,7 +43,7 @@ Enumera todos los componentes usados:
 <img src="diagrama/foto1.jpeg" width="300">
 <img src="diagrama/foto2.jpeg" width="300">
 
-## Reporte
+## resultados
 Incluye:
 [Reporte de Resultados.pdf](resultados/Reporte de Resultados.pdf)
 
