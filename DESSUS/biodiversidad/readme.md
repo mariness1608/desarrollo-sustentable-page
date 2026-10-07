@@ -5,16 +5,12 @@ AUTOMATIZACION EN MAKE
 el objetivo de este codigo expone como prender y apagar un led
 
 ## Objetivos de aprendizaje
-Programar y simular en Arduino el encendido y apagado intermitente (parpadeo) de un LED conectado al pin digital 13,
-utilizando la función delay() para generar un efecto visualmente perceptible.
+Desarrollar y desplegar un bot inteligente en la plataforma Telegram capaz de recibir fotografías de plantas enviadas por los usuarios, procesarlas mediante un agente de Inteligencia Artificial en la plataforma Make.com, y emitir un diagnóstico integral con recomendaciones amigables sobre su cuidado, frecuencia de riego y estado de salud general.
 
 ## Material utilizado
 Enumera todos los componentes usados:
-- Arduino Uno R4 WiFi
-- Protoboar
-- Led
-- Cables Dupont
-- Resistencia 220 ohms
+- make
+- fotos de plantas
  
 
 ## evidencias
