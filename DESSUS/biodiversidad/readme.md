@@ -45,5 +45,5 @@ Enumera todos los componentes usados:
 
 ## Reporte
 Incluye:
-[Reporte de Resultados.pdf.pdf](resultados/Reporte de Resultados.pdf.pdf)
+[Reporte de Resultados.pdf](resultados/Reporte de Resultados.pdf)
 
