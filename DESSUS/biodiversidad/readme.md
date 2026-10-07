@@ -20,7 +20,7 @@ Enumera todos los componentes usados:
 ## Diagrama del circuito
 
 
-<img src="diagrama/tinker.png" width="300">
+<img src="imagenes/automati.jpeg" width="300">
 
 
 
