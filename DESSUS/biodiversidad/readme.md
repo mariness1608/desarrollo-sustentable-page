@@ -2,7 +2,7 @@
 AUTOMATIZACION EN MAKE
 
 ## Descripción
-el objetivo de este codigo expone como prender y apagar un led
+el objetivo es conocer plantas y dar sus cuidados
 
 ## Objetivos de aprendizaje
 Desarrollar y desplegar un bot inteligente en la plataforma Telegram capaz de recibir fotografías de plantas enviadas por los usuarios, procesarlas mediante un agente de Inteligencia Artificial en la plataforma Make.com, y emitir un diagnóstico integral con recomendaciones amigables sobre su cuidado, frecuencia de riego y estado de salud general.
