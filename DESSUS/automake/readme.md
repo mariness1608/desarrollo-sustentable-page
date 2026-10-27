@@ -36,7 +36,7 @@ Interpretar el Índice de Desarrollo Humano (IDH) de las entidades de México y 
 
 ## Resultados
 
-[reporte2make.pdf](resultados/reporte2make.pdf)
+[idhresult.pdf](resultados/idhresult.pdf)
 
 
 
