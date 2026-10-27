@@ -1,7 +1,7 @@
 # Nombre del proyecto
 automatización de buzon ciudadano
 
-
+## objetivos ##
 Diseñar un buzón ciudadano digital que permita recibir reportes sobre problemas ambientales, registrarlos con fecha y usuario, y generar un folio para facilitar su identificación y seguimiento.
 
 ## Material utilizado
