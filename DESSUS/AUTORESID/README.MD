@@ -21,23 +21,17 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 
 
 
+
+
+
+
+
 ## Video del funcionamiento
 
 [readme](video/readme.txt)
 
 
 [Ver video en YouTube](https://youtube.com/shorts/iNmEj_lk2ro)
-
-
-
-
-
-## Video del funcionamiento
-
-[readme](video/readme.txt)
-
-
-[Ver video en YouTube](https://youtube.com/shorts/8TnP0shXFhA?feature=share)
 
 
 
