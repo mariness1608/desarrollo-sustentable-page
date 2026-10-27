@@ -36,7 +36,7 @@ Diseñar un buzón ciudadano digital que permita recibir reportes sobre problema
 
 
 ## Conclusiones
-Automatizar este bot permitió comprender que una automatización no es solo conectar módulos, sino asegurarse de que los datos correctos lleguen, en el formato correcto, al lugar correcto. También quedó claro que el trabajo con Inteligencia Artificial requiere instrucciones precisas y una verificación constante mediante pruebas reales, ya que pequeños errores de configuración pueden hacer que todo el sistema deje de cumplir su propósito, aunque a simple vista parezca estar funcionando.
+La actividad demuestra cómo las herramientas digitales pueden apoyar la participación ciudadana y la comunicación de problemas ambientales. El folio ayuda a mantener un registro organizado; sin embargo, para que el buzón sea un canal formal, una institución responsable debe recibir los reportes, atenderlos y comunicar una respuesta dentro de un plazo definido.
 
 ## resultados
 [reportesheets.pdf](resultados/reportesheets.pdf)
