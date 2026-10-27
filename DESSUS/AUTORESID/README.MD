@@ -29,8 +29,7 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](# Nombre del proyecto
-automatización con chatbot de ecosistemas 
+[Ver video en YouTube](https://youtube.com/shorts/iNmEj_lk2ro)
 
 
 ## Descripción
