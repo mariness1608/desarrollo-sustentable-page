@@ -25,7 +25,7 @@ Interpretar el Índice de Desarrollo Humano (IDH) de las entidades de México y 
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](https://youtube.com/shorts/97wVpFTu60o?feature=share)
+[Ver video en YouTube](https://youtu.be/CBV_58wMgyc)
 
 
 
