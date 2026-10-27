@@ -30,7 +30,7 @@ Diseñar un buzón ciudadano digital que permita recibir reportes sobre problema
 
 ## imagenes
 ## imagenes
-<img src="" width="300">
+<img src="imagen sheets.png" width="300">
 
 
 
