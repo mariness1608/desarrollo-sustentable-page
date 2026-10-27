@@ -3,13 +3,13 @@ automatización de IDH
 
 
 # Objetivo #
-Diseñar un buzón ciudadano digital que permita recibir reportes sobre problemas ambientales, registrarlos con fecha y usuario, y generar un folio para facilitar su identificación y seguimiento.
+Interpretar el Índice de Desarrollo Humano (IDH) de las entidades de México y crear una página web conectada a Make y a una herramienta de inteligencia artificial, utilizando datos oficiales para explicar los resultados de la entidad seleccionada.
+
 
 ## Material utilizado
 
 - make.com
 - telefono celular
-- google sheets
 - laptop
 - modulo de IA
  
@@ -37,5 +37,6 @@ Diseñar un buzón ciudadano digital que permita recibir reportes sobre problema
 
 
 ## Conclusiones
-La actividad demuestra cómo las herramientas digitales pueden apoyar la participación ciudadana y la comunicación de problemas ambientales. El folio ayuda a mantener un registro organizado; sin embargo, para que el buzón sea un canal formal, una institución responsable debe recibir los reportes, atenderlos y comunicar una respuesta dentro de un plazo definido.
 
+Esta práctica permite comprender cómo la tecnología y la inteligencia artificial pueden facilitar la consulta e interpretación de indicadores de desarrollo humano. También destaca la importancia de verificar las respuestas generadas por IA con fuentes oficiales, especialmente porque los datos usados en la actividad corresponden a 2012 y pueden no representar por completo la situación actual.
+Nota
