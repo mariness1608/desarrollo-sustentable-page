@@ -4,7 +4,8 @@ automatización con chatbot de residuos
 
 
 ## Objetivos de aprendizaje
-Comprender, mediante la construcción de una automatización real, cómo integrar servicios digitales (Telegram, Make e Inteligencia Artificial) para procesar información visual del ecosistema y reforzar conceptos de productores, consumidores y descomponedores vistos en la materia de Desarrollo Sustentable.
+El objetivo es identificar el impacto de los residuos que se generan en la vida diaria, 
+
 
 ## Material utilizado
 
@@ -41,9 +42,7 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 
 
 ## Conclusiones
-Automatizar este bot permitió comprender que una automatización no es solo conectar módulos, sino asegurarse de que los datos correctos lleguen, en el formato correcto, al lugar correcto. También quedó claro que el trabajo con Inteligencia Artificial requiere instrucciones precisas y una verificación constante mediante pruebas reales, ya que pequeños errores de configuración pueden hacer que todo el sistema deje de cumplir su propósito, aunque a simple vista parezca estar funcionando.
-)
-
+Un clasificador con IA se armó sin programar y responde en pocos segundos, pero sus respuestas dependen de la calidad de la foto, se confunden con materiales mezclados y no consideran la infraestructura local. Por eso hay que verificarlas con fuentes confiables.
 
 
 
