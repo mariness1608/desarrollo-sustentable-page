@@ -40,6 +40,12 @@ El objetivo es identificar el impacto de los residuos que se generan en la vida 
 <img src="imagenes/residuoss.png" width="300">
 
 
+## Reporte
+Incluye:
+[pracre.pdf](resultados/pracre.pdf)
+
+
+
 
 ## Conclusiones
 Un clasificador con IA se armó sin programar y responde en pocos segundos, pero sus respuestas dependen de la calidad de la foto, se confunden con materiales mezclados y no consideran la infraestructura local. Por eso hay que verificarlas con fuentes confiables.
