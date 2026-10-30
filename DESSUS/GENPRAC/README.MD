@@ -25,10 +25,7 @@ Interpretar el Índice de Desarrollo Humano (IDH) de las entidades de México y 
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](# Nombre del proyecto
-automatización de IDH
-
-
+[Ver video en YouTube](https://youtu.be/WzLM0TmJGUU)
 # Objetivo #
 Interpretar el Índice de Desarrollo Humano (IDH) de las entidades de México y crear una página web conectada a Make y a una herramienta de inteligencia artificial, utilizando datos oficiales para explicar los resultados de la entidad seleccionada.
 
