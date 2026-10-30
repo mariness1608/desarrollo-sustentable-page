@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estilos de vida entre generaciones</title>
+<style>
+  :root {
+    --bg: #e8efe6;
+    --paper: #fbfdfa;
+    --ink: #14301f;
+    --muted: #4a6455;
+    --line: #c5d4c6;
+    --pine: #1f4d36;
+    --soil: #7a5c3a;
+    --leaf: #2f8050;
+    --water: #2a7189;
+    --warn-bg: #f7e6e0;
+    --warn-ink: #8c3b2a;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.5;
+  }
+
+  /* ---------- Encabezado ---------- */
+  .banner {
+    background: var(--pine);
+    color: #f1f7f2;
+    padding: 48px 20px 0;
+  }
+  .banner-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-bottom: 36px;
+  }
+  .banner h1 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px;
+  }
+  .banner p {
+    max-width: 62ch;
+    margin: 0;
+    font-size: 1.05rem;
+    color: #d3e3d8;
+  }
+  /* Las tres franjas representan a las tres generaciones: tierra, planta y agua */
+  .tira { display: flex; height: 8px; }
+  .tira span { flex: 1; }
+  .tira .soil { background: var(--soil); }
+  .tira .leaf { background: var(--leaf); }
+  .tira .water { background: var(--water); }
+
+  /* ---------- Contenido ---------- */
+  main {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+
+  .columnas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 900px) {
+    .columnas { grid-template-columns: repeat(3, 1fr); align-items: start; }
+  }
+
+  .persona {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-top: 6px solid var(--acento);
+    border-radius: 8px;
+    padding: 20px 18px 22px;
+  }
+  .persona.soil  { --acento: var(--soil); }
+  .persona.leaf  { --acento: var(--leaf); }
+  .persona.water { --acento: var(--water); }
+
+  .persona h2 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    margin: 0 0 16px;
+    color: var(--acento);
+  }
+
+  .campo { margin-bottom: 18px; }
+  .campo:last-child { margin-bottom: 0; }
+
+  label {
+    display: block;
+    font-size: 0.93rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  input[type="number"],
+  textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--ink);
+    background: #fff;
+    border: 1px solid #a9bfae;
+    border-radius: 6px;
+    padding: 9px 10px;
+  }
+  input[type="number"] { max-width: 9rem; }
+  textarea { min-height: 84px; resize: vertical; }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--acento, var(--pine));
+    outline-offset: 2px;
+  }
+  .persona input:focus-visible,
+  .persona textarea:focus-visible { border-color: var(--acento); }
+
+  [aria-invalid="true"] {
+    border-color: var(--warn-ink);
+    background: #fdf4f1;
+  }
+
+  /* ---------- Acción y resultado ---------- */
+  .accion {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  button {
+    font: inherit;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+    background: var(--pine);
+    border: 0;
+    border-radius: 8px;
+    padding: 14px 36px;
+    cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #173a29; }
+  button:disabled { background: #7d9486; cursor: not-allowed; }
+
+  .aviso {
+    width: 100%;
+    max-width: 760px;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-weight: 600;
+  }
+  .aviso[hidden] { display: none; }
+  .aviso.cargando { background: #dcebe0; color: var(--pine); }
+  .aviso.error { background: var(--warn-bg); color: var(--warn-ink); }
+
+  .resultado {
+    width: 100%;
+    max-width: 760px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-left: 6px solid var(--pine);
+    border-radius: 8px;
+    padding: 20px 22px;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+  }
+  .resultado[hidden] { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="banner">
+    <div class="banner-inner">
+      <h1>Estilos de vida entre generaciones</h1>
+      <p>Se entrevistó a tres generaciones sobre sus hábitos de consumo para compararlos: cómo se alimentaban, qué hacían con la ropa, la basura y el agua, y qué consideraban necesario para vivir bien.</p>
+    </div>
+  </div>
+  <div class="tira" aria-hidden="true"><span class="soil"></span><span class="leaf"></span><span class="water"></span></div>
+</header>
+
+<main>
+  <div class="columnas" id="columnas"></div>
+
+  <div class="accion">
+    <button type="button" id="btnComparar">Comparar respuestas</button>
+    <div id="estado" class="aviso" role="status" aria-live="polite" hidden></div>
+    <div id="resultado" class="resultado" aria-live="polite" hidden></div>
+  </div>
+</main>
+
+<script>
+  // Pega aquí la URL del webhook de Make (módulo "Custom webhook" de tu escenario).
+  const WEBHOOK_URL = "https://hook.us2.make.com/brhnb6p413o7ovodwudenijdefiwmddk";
+
+  const PREGUNTAS = [
+    "¿Cómo se conseguía la comida en casa: mercado, tienda, súper o cultivo propio?",
+    "¿Qué se hacía con la ropa o los zapatos viejos o rotos?",
+    "¿Qué aparatos electrónicos tenías y cada cuánto los cambiabas?",
+    "¿Cómo te transportabas a la escuela o al trabajo?",
+    "¿Qué se hacía con la basura? ¿Se separaba o se reutilizaba algo?",
+    "¿Usabas bolsas, botellas o envases desechables?",
+    "¿Cómo se usaba y se cuidaba el agua en casa?",
+    "¿Qué consideras necesario para vivir bien?"
+  ];
+
+  const PERSONAS = [
+    { clave: "abuelo", titulo: "Abuelo/a",    clase: "soil" },
+    { clave: "padre",  titulo: "Padre/Madre", clase: "leaf" },
+    { clave: "amigo",  titulo: "Amigo/a",     clase: "water" }
+  ];
+
+  const contenedor = document.getElementById("columnas");
+  const boton = document.getElementById("btnComparar");
+  const estado = document.getElementById("estado");
+  const resultado = document.getElementById("resultado");
+
+  // Construye las tres secciones a partir de la lista de preguntas
+  PERSONAS.forEach(function (p) {
+    const seccion = document.createElement("section");
+    seccion.className = "persona " + p.clase;
+    seccion.setAttribute("aria-labelledby", "titulo-" + p.clave);
+
+    const h2 = document.createElement("h2");
+    h2.id = "titulo-" + p.clave;
+    h2.textContent = p.titulo;
+    seccion.appendChild(h2);
+
+    const campoEdad = document.createElement("div");
+    campoEdad.className = "campo";
+    const labelEdad = document.createElement("label");
+    labelEdad.htmlFor = p.clave + "-edad";
+    labelEdad.textContent = "Edad";
+    const inputEdad = document.createElement("input");
+    inputEdad.type = "number";
+    inputEdad.id = p.clave + "-edad";
+    inputEdad.min = "1";
+    inputEdad.max = "120";
+    inputEdad.inputMode = "numeric";
+    campoEdad.appendChild(labelEdad);
+    campoEdad.appendChild(inputEdad);
+    seccion.appendChild(campoEdad);
+
+    PREGUNTAS.forEach(function (texto, i) {
+      const campo = document.createElement("div");
+      campo.className = "campo";
+      const label = document.createElement("label");
+      label.htmlFor = p.clave + "-p" + (i + 1);
+      label.textContent = (i + 1) + ". " + texto;
+      const area = document.createElement("textarea");
+      area.id = p.clave + "-p" + (i + 1);
+      area.rows = 3;
+      campo.appendChild(label);
+      campo.appendChild(area);
+      seccion.appendChild(campo);
+    });
+
+    contenedor.appendChild(seccion);
+  });
+
+  // Al escribir en un campo marcado como vacío, se quita la marca
+  contenedor.addEventListener("input", function (e) {
+    if (e.target.hasAttribute("aria-invalid")) e.target.removeAttribute("aria-invalid");
+  });
+
+  function mostrarAviso(tipo, mensaje) {
+    estado.className = "aviso " + tipo;
+    estado.textContent = mensaje;
+    estado.hidden = false;
+  }
+
+  function ocultarAviso() {
+    estado.hidden = true;
+    estado.textContent = "";
+  }
+
+  // Revisa que la edad y las 8 respuestas de cada persona estén llenas
+  function validar() {
+    let primerVacio = null;
+    PERSONAS.forEach(function (p) {
+      const campos = [document.getElementById(p.clave + "-edad")];
+      for (let i = 1; i <= PREGUNTAS.length; i++) {
+        campos.push(document.getElementById(p.clave + "-p" + i));
+      }
+      campos.forEach(function (campo) {
+        const valor = campo.value.trim();
+        const vacio = valor === "" || (campo.type === "number" && !(Number(valor) > 0));
+        if (vacio) {
+          campo.setAttribute("aria-invalid", "true");
+          if (!primerVacio) primerVacio = campo;
+        } else {
+          campo.removeAttribute("aria-invalid");
+        }
+      });
+    });
+    if (primerVacio) primerVacio.focus();
+    return primerVacio === null;
+  }
+
+  // Arma el texto de una persona con el formato pedido
+  function armarTexto(clave) {
+    const lineas = ["Edad: " + document.getElementById(clave + "-edad").value.trim()];
+    PREGUNTAS.forEach(function (pregunta, i) {
+      const respuesta = document.getElementById(clave + "-p" + (i + 1)).value.trim();
+      lineas.push((i + 1) + ". " + pregunta + ": " + respuesta);
+    });
+    return lineas.join("\n");
+  }
+
+  boton.addEventListener("click", async function () {
+    resultado.hidden = true;
+    resultado.textContent = "";
+    ocultarAviso();
+
+    if (!validar()) {
+      mostrarAviso("error", "Faltan campos por llenar. Completa la edad y las 8 respuestas de las tres personas antes de comparar.");
+      return;
+    }
+
+    const cuerpo = new URLSearchParams();
+    PERSONAS.forEach(function (p) {
+      cuerpo.append(p.clave, armarTexto(p.clave));
+    });
+
+    boton.disabled = true;
+    mostrarAviso("cargando", "Analizando respuestas, esto puede tardar unos segundos...");
+
+    try {
+      const respuesta = await fetch(WEBHOOK_URL, { method: "POST", body: cuerpo });
+      if (!respuesta.ok) throw new Error("HTTP " + respuesta.status);
+      const texto = await respuesta.text();
+      if (texto.trim() === "") throw new Error("Respuesta vacía");
+      ocultarAviso();
+      resultado.textContent = texto;
+      resultado.hidden = false;
+    } catch (err) {
+      mostrarAviso("error", "No se pudo obtener el análisis, intenta de nuevo.");
+    } finally {
+      boton.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
