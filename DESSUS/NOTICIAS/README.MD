@@ -34,9 +34,8 @@ Construir un flujo de automatización sin programación tradicional (No-Code) qu
 
 
 ## Conclusiones
-Automatizar este bot permitió comprender que una automatización no es solo conectar módulos, sino asegurarse de que los datos correctos lleguen, en el formato correcto, al lugar correcto. También quedó claro que el trabajo con Inteligencia Artificial requiere instrucciones precisas y una verificación constante mediante pruebas reales, ya que pequeños errores de configuración pueden hacer que todo el sistema deje de cumplir su propósito, aunque a simple vista parezca estar funcionando.
+se logró construir de manera exitosa una solución de divulgación ambiental automatizada mediante la integración de un flujo No-Code (Make, Webhooks, RSS, Text Aggregator y Make AI Agent) publicado en GitHub Pages.
 
-##resultados#
-
+## resultados
 [ReportePráctica3.pdf](resultados/ReportePráctica3.pdf)
 
