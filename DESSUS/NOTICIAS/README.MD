@@ -34,7 +34,7 @@ Comprender, mediante la construcción de una automatización real, cómo integra
 
 
 ## imagenes
-<img src="imagenes/imagen make.png" width="300">
+<img src="imagenes/noticiasfoto.png" width="300">
 
 
 
