@@ -4,9 +4,9 @@ automatización con chatbot de demanda
 
 
 ## Objetivos de aprendizaje
-El objetivo es identificar el impacto de los residuos que se generan en la vida diaria, 
-
-
+Entender la economía: el precio del camarón sube cuando hay poca oferta (por ejemplo, en una veda) y baja cuando hay sobreproducción.
+Relacionarlo con el ambiente: ver cómo la escasez de un recurso natural afecta su precio.
+Automatizarlo: hacer un simulador con potenciómetros y Arduino que calcule el precio y mande una alerta a Telegram cuando haya escasez.
 ## Material utilizado
 
 - make.com
@@ -53,8 +53,4 @@ Incluye:
 
 
 ## Conclusiones
-Un clasificador con IA se armó sin programar y responde en pocos segundos, pero sus respuestas dependen de la calidad de la foto, se confunden con materiales mezclados y no consideran la infraestructura local. Por eso hay que verificarlas con fuentes confiables.
-
-
-
-
+La práctica mostró que cuando un recurso natural escasea, como el camarón durante una veda, su precio sube, y que cuando hay sobreproducción baja. Además, automatizar una alerta con Arduino, Make y Telegram ayuda a un productor o cooperativa a enterarse a tiempo de los cambios del mercado. Medidas como la veda reducen la oferta a corto plazo, pero protegen la especie y la pesca a largo plazo.
