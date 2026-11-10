@@ -47,7 +47,7 @@ Automatizarlo: hacer un simulador con potenciómetros y Arduino que calcule el p
 
 ## Reporte
 Incluye:
-[reporte4.1.pdf](resultados/reporte4.1.pdf)
+[reportepre.pdf](resultados/reportepre.pdf)
 
 
 
