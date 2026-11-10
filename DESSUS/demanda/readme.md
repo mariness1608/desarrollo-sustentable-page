@@ -47,7 +47,7 @@ El objetivo es identificar el impacto de los residuos que se generan en la vida 
 
 ## Reporte
 Incluye:
-[pracre.pdf](resultados/pracre.pdf)
+[reporte4.1.pdf](resultados/reporte4.1.pdf)
 
 
 
