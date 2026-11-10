@@ -35,7 +35,7 @@ El objetivo es identificar el impacto de los residuos que se generan en la vida 
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](https://youtube.com/shorts/iNmEj_lk2ro)
+[Ver video en YouTube](https://youtube.com/shorts/1IBD8KCilRA)
 
 
 
