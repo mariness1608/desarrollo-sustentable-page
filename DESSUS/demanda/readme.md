@@ -40,7 +40,9 @@ El objetivo es identificar el impacto de los residuos que se generan en la vida 
 
 
 ## imagenes
-<img src="imagenes/residuoss.png" width="300">
+<img src="imagenes/imagende.png" width="300">
+<img src="imagenes/imagenma.png" width="300">
+
 
 
 ## Reporte
