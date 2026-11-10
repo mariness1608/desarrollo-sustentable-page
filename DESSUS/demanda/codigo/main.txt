@@ -1,1 +1,213 @@
-
+{
+    "name": "Mercado_Equipo#",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 3042846,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "setupValidation": {
+                    "version": 1,
+                    "configuration": "1fa7a62fda8e9b63",
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    }
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "label": "mercado",
+                            "data": {
+                                "editable": "true"
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "demanda",
+                        "type": "text"
+                    },
+                    {
+                        "name": "amp;oferta",
+                        "type": "text"
+                    },
+                    {
+                        "name": "amp;precio",
+                        "type": "text"
+                    },
+                    {
+                        "name": "amp;estado",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "telegram:SendReplyMessage",
+            "version": 1,
+            "parameters": {
+                "__IMTCONN__": 12246583
+            },
+            "mapper": {
+                "chatId": "8993101059",
+                "text": "ALERTA DE ESCASEZ\nDemanda: {{1.demanda}}\nOferta: {{1.oferta}}\nPrecio de equilibrio: ${{1.precio}} por kg\nLa demanda supera a la oferta: el precio sube.",
+                "messageThreadId": "",
+                "parseMode": "",
+                "replyToMessageId": "",
+                "replyMarkupAssembleType": "reply_markup_enter",
+                "replyMarkup": ""
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "setupValidation": {
+                    "version": 1,
+                    "configuration": "bbbcad904132fb86",
+                    "result": {
+                        "valid": true,
+                        "fields": []
+                    }
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "maria's Telegram Bot connection",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "telegram"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "parseMode": {
+                            "label": "Empty"
+                        },
+                        "disableNotification": {
+                            "mode": "chose"
+                        },
+                        "replyMarkupAssembleType": {
+                            "label": "Enter the Reply Markup"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:telegram",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "chatId",
+                        "type": "text",
+                        "label": "Chat ID",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "type": "text",
+                        "label": "Text",
+                        "required": true
+                    },
+                    {
+                        "name": "messageThreadId",
+                        "type": "number",
+                        "label": "Message Thread ID"
+                    },
+                    {
+                        "name": "parseMode",
+                        "type": "select",
+                        "label": "Parse Mode",
+                        "validate": {
+                            "enum": [
+                                "Markdown",
+                                "HTML"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "disableNotification",
+                        "type": "boolean",
+                        "label": "Disable Notifications"
+                    },
+                    {
+                        "name": "disableWebPagePreview",
+                        "type": "boolean",
+                        "label": "Disable Link Previews"
+                    },
+                    {
+                        "name": "replyToMessageId",
+                        "type": "number",
+                        "label": "Original Message ID"
+                    },
+                    {
+                        "name": "replyMarkupAssembleType",
+                        "type": "select",
+                        "label": "Enter/Assemble the Reply Markup Field",
+                        "validate": {
+                            "enum": [
+                                "reply_markup_enter",
+                                "reply_markup_assemble"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "replyMarkup",
+                        "type": "text",
+                        "label": "Reply Markup"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
