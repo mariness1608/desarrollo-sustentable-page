@@ -29,7 +29,7 @@ Automatizarlo: hacer un simulador con potenciómetros y Arduino que calcule el p
 [readme](video/readme.txt)
 
 
-[Ver video en YouTube](https://youtube.com/shorts/1IBD8KCilRA)
+[Ver video en YouTube](https://youtu.be/kAEN0qyqKrce)
 
 
 
