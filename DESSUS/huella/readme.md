@@ -37,7 +37,7 @@ Identificar los hábitos de compra local y global de mi comunidad, relacionarlos
 
 ## Reporte
 Incluye:
-[reporteencues.pdf](resultados/reporteencues.pdf)
+[Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf](resultados/Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf)
 
 
 
