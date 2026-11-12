@@ -1,1 +1,162 @@
-
+{
+    "name": "Huella_Nube_Equipo",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 3052051,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "My gateway-webhook webhook"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "ai-local-agent:RunLocalAIAgent",
+            "version": 0,
+            "parameters": {
+                "makeConnectionId": 10598347
+            },
+            "mapper": {
+                "files": [],
+                "message": "Video: {{1.video}} h/dia\nMusica: {{1.musica}} h/dia\nRedes sociales: {{1.redes}} h/dia\nVideollamadas: {{1.videollamadas}} h/semana\nJuegos en linea: {{1.juegos}} h/dia\nNube: {{1.nube}} GB guardados\nIA (chatbots): {{1.ia}} consultas/dia\nCorreos: {{1.correos}} al dia",
+                "outputType": "text",
+                "tokenLimit": "50",
+                "modelConfig": {
+                    "recursionLimit": "300",
+                    "aiCompactionEnabled": true,
+                    "iterationsFromHistoryCount": "10"
+                },
+                "defaultModel": "medium",
+                "systemPrompt": "Eres un analista de sustentabilidad digital para alumnos de Desarrollo Sustentable del TecNM.\nRecibiras el uso digital de una persona. Estima la energia que ese uso provoca en centros de\ndatos y redes.\nReglas:\n- Usa este factor de emision: 0.444 kg CO2e por kWh\n(fuente: SEMARNAT, aviso del Factor de Emision del Sistema Electrico Nacional 2024, DOF 28 de febrero de 2025).\n- Para cada actividad indica el valor de kWh por hora (o por unidad) que supones. Si las fuentes\nvarian mucho, usa un valor intermedio y dilo.\n- No presentes las estimaciones como datos exactos.\nResponde en texto plano (sin asteriscos, sin markdown), en espanol, con este formato:\nENERGIA ESTIMADA\nPor semana: [kWh]\nPor año: [kWh]\nEmisiones por año: [kg CO2e]\nEquivale a: [kilometros en auto o dias con un foco LED encendido]\nSUPOSICIONES\n[una linea por actividad con el valor usado]\n¿QUIEN PAGA ESTE COSTO?\n[3 lineas: por que es una externalidad, que recursos consume (energia, agua) y quien la absorbe]\n3 ACCIONES PARA REDUCIRLA\n1. [...]\n2. [...]\n3. [...]\n",
+                "promptCaching": "none",
+                "fallbackEnabled": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "files": {
+                            "mode": "chose"
+                        },
+                        "outputType": {
+                            "label": "Text"
+                        },
+                        "defaultModel": {
+                            "mode": "chose",
+                            "label": "MediumModel: gpt-5-nano. Reasoning: low. A balanced, quick choice for clearly defined tasks needing reliable answers rather than deep analysis"
+                        },
+                        "promptCaching": {
+                            "label": "Automatic (always on)"
+                        }
+                    },
+                    "parameters": {
+                        "makeConnectionId": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "ai-provider"
+                            },
+                            "label": "Make's AI Provider (default)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "makeConnectionId",
+                        "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ]
+            },
+            "tools": []
+        },
+        {
+            "id": 3,
+            "module": "gateway:WebhookRespond",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "body": "{{2.response}}",
+                "status": "200",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "text/plain; charset=utf-8"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
