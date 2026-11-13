@@ -41,7 +41,7 @@ Distinguir la obsolescencia planificada de la percibida en casos reales, valorar
 
 ## Reporte
 Incluye:
-[reporte practica4.4.pdf](resultados/reporte practica4.4.pdf)
+[reportepractica4.4.pdf](resultados/reportepractica4.4.pdf)
 
 
 
