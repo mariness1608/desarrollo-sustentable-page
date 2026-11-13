@@ -41,7 +41,7 @@ hecha con IA.
 
 ## Reporte
 Incluye:
-[calcurepor.pdf](resultados/ppp45.pdf)
+[calcurepor.pdf](resultados/calcurepor.pdf)
 
 
 
