@@ -3,7 +3,9 @@ automatización con make
 
 ## Objetivos de aprendizaje
 
-Reconocer el consumo de energía de los servicios digitales como un costo externalizado y estimar la huella digital personal con apoyo de IA, evaluando de forma crítica sus suposiciones. Se construyó una página web (HTML, CSS y JavaScript) donde cada persona captura su uso semanal de video, música, redes sociales, videollamadas, juegos, almacenamiento en la nube, chatbots de IA y correos. La página envía los datos a un webhook de Make, un Make AI Agent estima energía y emisiones, y un Webhook Response devuelve el texto a la página. Se publica con GitHub Pages.
+
+Distinguir la obsolescencia planificada de la percibida en casos reales, valorar la reparación como alternativa de consumo y verificar con información local las recomendaciones de una IA.
+
 
 
 ## Material utilizado
@@ -45,5 +47,5 @@ Incluye:
 
 
 ## Conclusiones
-Aunque ver un video o preguntarle algo a una IA parece gratis, cada acción consume electricidad y agua en centros de datos. Ese costo lo absorben la sociedad y el ambiente, no quien usa el servicio, y por eso es una externalidad. Estimar nuestra propia huella, con sus límites, ayuda a tomar mejores decisiones de uso y a exigir que el costo se refleje en el precio.
+Preguntar si un aparato se puede reparar antes de reemplazarlo permite ahorrar dinero y reducir residuos electrónicos. La obsolescencia, ya sea planificada o percibida, empuja a consumir más de lo necesario, y reparar es una alternativa real para cambiar esa pauta de consumo. La IA sirve como primera orientación, pero sus costos son aproximados y deben verificarse con un taller local antes de decidir.
 
