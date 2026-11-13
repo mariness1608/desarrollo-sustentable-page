@@ -1,1 +1,162 @@
-
+{
+    "name": "Huella_Ecologica_Equipo",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 3060446,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "My gateway-webhook webhook"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "ai-local-agent:RunLocalAIAgent",
+            "version": 0,
+            "parameters": {
+                "makeConnectionId": 12313506
+            },
+            "mapper": {
+                "files": [],
+                "message": "Carne: {{1.carne}}\nComida local: {{1.local}}\nTransporte principal: {{1.transporte}}\nKilometros al dia: {{1.km}}\nVuelos al ano: {{1.vuelos}}\nAire acondicionado: {{1.aire}} h/dia\nPersonas en casa: {{1.personas}}\nPrendas nuevas al mes: {{1.ropa}}\nCambio de celular cada: {{1.celular}} anos\nSepara basura: {{1.separa}}",
+                "outputType": "text",
+                "tokenLimit": "50",
+                "modelConfig": {
+                    "recursionLimit": "300",
+                    "aiCompactionEnabled": true,
+                    "iterationsFromHistoryCount": "10"
+                },
+                "defaultModel": "medium",
+                "systemPrompt": "Eres un analista de huella ecologica para alumnos de Desarrollo Sustentable del TecNM en\nMazatlan, Sinaloa (clima calido, uso alto de aire acondicionado).\nRecibiras las respuestas de un cuestionario de estilo de vida. Estima la huella ecologica de la\npersona.\nAclara que es una estimacion aproximada y no un calculo oficial.\nResponde en texto plano (sin asteriscos, sin markdown), en espanol, con este formato:\nTU HUELLA ESTIMADA\nHectareas globales por año: [valor aproximado]\nPlanetas necesarios si todos vivieran asi: [valor]\nPOR AREA (de mayor a menor impacto)\nAlimentacion: [alto / medio / bajo y por que, en 1 linea]\nTransporte: [...]\nEnergia: [...]\nConsumo: [...]\nResiduos: [...]\n3 ACCIONES PARA REDUCIRLA\n1. [la de mayor efecto]\n2. [...]\n3. [...]\nOPORTUNIDAD ECONOMICA\n[2 lineas: un negocio o servicio sustentable de la region que ayudaria a reducir esta huella]",
+                "promptCaching": "none",
+                "fallbackEnabled": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "files": {
+                            "mode": "chose"
+                        },
+                        "outputType": {
+                            "label": "Text"
+                        },
+                        "defaultModel": {
+                            "mode": "chose",
+                            "label": "MediumModel: gpt-5-nano. Reasoning: low. A balanced, quick choice for clearly defined tasks needing reliable answers rather than deep analysis"
+                        },
+                        "promptCaching": {
+                            "label": "Automatic (always on)"
+                        }
+                    },
+                    "parameters": {
+                        "makeConnectionId": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "ai-provider"
+                            },
+                            "label": "maria's Make's AI Provider connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "makeConnectionId",
+                        "type": "account:ai-provider,openai-gpt-3,anthropic-claude,gemini-ai-q9zyjp,ai-agent-foundry-openai,ai-agent-foundry-non-openai,mistral-ai,cohere,groq,ai-agent-xai,amazon-bedrock,ai-agent-openai-compatible",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ]
+            },
+            "tools": []
+        },
+        {
+            "id": 4,
+            "module": "gateway:WebhookRespond",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "body": "{{3.response}}",
+                "status": "200",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "text/plain; charset=utf-8"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "headers": {
+                            "mode": "chose"
+                        }
+                    }
+                }
+            }
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
