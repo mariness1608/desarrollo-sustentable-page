@@ -41,7 +41,7 @@ Distinguir la obsolescencia planificada de la percibida en casos reales, valorar
 
 ## Reporte
 Incluye:
-[Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf](resultados/Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf)
+[reporte practica4.4.pdf](resultados/reporte practica4.4.pdf)
 
 
 
