@@ -41,11 +41,11 @@ hecha con IA.
 
 ## Reporte
 Incluye:
-[ppp45.pdf](resultados/ppp45.pdf)
+[calcurepor.pdf](resultados/ppp45.pdf)
 
 
 
 
 ## Conclusiones
-Aunque ver un video o preguntarle algo a una IA parece gratis, cada acción consume electricidad y agua en centros de datos. Ese costo lo absorben la sociedad y el ambiente, no quien usa el servicio, y por eso es una externalidad. Estimar nuestra propia huella, con sus límites, ayuda a tomar mejores decisiones de uso y a exigir que el costo se refleje en el precio.
+La huella ecológica convierte el estilo de vida en un número fácil de comparar. La estimación con IA es una buena primera orientación, pero debe contrastarse con una calculadora oficial. Identificar las áreas de mayor impacto, como el aire acondicionado en Mazatlán, permite elegir cambios personales y estrategias económicas que sí reduzcan la huella.
 
