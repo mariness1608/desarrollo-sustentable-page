@@ -41,7 +41,7 @@ hecha con IA.
 
 ## Reporte
 Incluye:
-[Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf](resultados/Reporte_Practica_4_3_Huella_energetica_de_la_nube.pdf)
+[ppp45.pdf](resultados/ppp45.pdf)
 
 
 
